@@ -34,6 +34,14 @@ CREATE TABLE my_table
         ... ...
     )
 ```
+To not allow null values
+```
+CREATE TABLE my_table
+    (
+        name VARCHAR(50) NOT NULL,
+        age INT NOT NULL
+    )
+```
 
 See data inside table
 ```SELECT * FROM my_table;```
@@ -45,5 +53,8 @@ VALUES ('Tony' 25),
        ('Bob', 45),
        ('Ben', 38)
 ```
+Show warnings
+```SHOW WARNINGS;```
+
 
 
