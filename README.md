@@ -11,7 +11,7 @@ Select which database to use
 ```USE my_database;```
 
 Display current database
-```SHOW database();```
+```SELECT database();```
 
 Delete database
 ```DROP DATABASE my_database;```
@@ -19,8 +19,8 @@ Delete database
 ### Tables
 Show tables
 ```SHOW TABLES;```
-```SHOW COLUMNS FROM my_table```
-```DESC my_table```
+```SHOW COLUMNS FROM my_table;```
+```DESC my_table;```
 
 Delete database
 ```DROP TABLE my_table```
