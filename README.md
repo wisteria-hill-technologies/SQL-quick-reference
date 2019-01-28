@@ -29,7 +29,7 @@ Create a table
 ```
 CREATE TABLE my_table 
     (
-        name VAR(100),
+        name VARCHAR(100),
         age INT
         ... ...
     )
