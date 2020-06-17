@@ -63,6 +63,9 @@ CREATE TABLE user2
     );
 ```
 
+
+
+
 See data inside table
 ```SELECT * FROM my_table;```
 
@@ -73,6 +76,7 @@ VALUES ('Tony' 25),
        ('Bob', 45),
        ('Ben', 38)
 ```
+
 Show warnings
 ```SHOW WARNINGS;```
 
