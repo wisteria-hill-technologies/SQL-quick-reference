@@ -81,4 +81,33 @@ Show warnings
 ```SHOW WARNINGS;```
 
 
+## Select
+```
+select * from my_table;
+select column_name from my_table;
+select column_name_1, column_name_2 from my_table;
+```
+### where
+```
+select * from my_table where column_name_1 = 'hello' AND column_name_2 = 4;
+```
+
+### Aliases
+You can give aliases to column names as below.
+```
+select cat_id as id, name from cats;
+select name AS 'cat name', breed AS 'kitty breed' FROM cats;
+```
+
+## Update
+```
+update my_table set column_name='new value' where column_name='some value';
+```
+
+## Delete
+Similar to select syntax
+```
+delete from my_table where column_name = 'some value';
+```
+DON'T just 'delete from my_tables' without specifying an item with 'where'.  It will delete all the items in the table.
 
