@@ -63,6 +63,10 @@ CREATE TABLE user2
     );
 ```
 
+If you want to modify or forgot to add something to table (e.g. auto_increment):
+```
+alter table table_name modify column column_name int not null auto_increment;
+```
 
 
 
@@ -101,7 +105,7 @@ select name AS 'cat name', breed AS 'kitty breed' FROM cats;
 
 ## Update
 ```
-update my_table set column_name='new value' where column_name='some value';
+update my_table set column_name='new value', another_column_name="another new value" where column_name='some value';
 ```
 
 ## Delete
@@ -111,3 +115,29 @@ delete from my_table where column_name = 'some value';
 ```
 DON'T just 'delete from my_tables' without specifying an item with 'where'.  It will delete all the items in the table.
 
+## Importing from sql file
+Go to the file location of your sql file.
+Then, go into sql.
+Select your database.
+Do below command (with correct path)
+
+```
+source filename.sql
+```
+
+## Concat
+Examples:
+```
+select concat(column_1, column_2) from table_name;
+
+select concat(column_1, 'can add text or space here', column_2) from table_name;
+
+select concat(column_1, 'can add text or space here', column_2) as 'whatever you want to call it' from table_name;
+```
+
+```
+select concat_ws(' _ ', title, author_fname, author_lname) as 'Some Title' from books;
+```
+concat_ws can concat with some text like ' - '.
+
+ 
