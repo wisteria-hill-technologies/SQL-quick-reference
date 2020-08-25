@@ -125,7 +125,10 @@ Do below command (with correct path)
 source filename.sql
 ```
 
-## Concat
+## String Functions
+String functions only change the query output, but they do not change actual data in the database.
+
+### Concat
 Examples:
 ```
 select concat(column_1, column_2) from table_name;
@@ -140,4 +143,27 @@ select concat_ws(' _ ', title, author_fname, author_lname) as 'Some Title' from 
 ```
 concat_ws can concat with some text like ' - '.
 
- 
+### Substring (substring / substr)
+```
+select substring('Hello World', 1, 5); --> returns 'Hello'. Note that The first position in string is 1, not 0 in sql.
+select substring('Hello, World', 7); --> returns 'World'
+select substring('Hello, World', -4); --> returns 'orld'
+select substring(title, 1, 4) from books;
+select substring(title, 1, 4) as 'Short Title' from books;
+```
+'substr' is the shortcut for 'substring'.
+```
+select substr(title, 1, 4) as 'Short Title' from books;
+```
+
+You can also combine substring with concat, as below.
+```
+select concat(substring(title, 1, 4), '...') as 'Short Title' from books;
+```
+
+### Replace
+Note that it is case sensitive.
+```
+select replace('Yo, World!', 'Yo', 'Hello') as Greeting;
+select replace(title, 'a', 'replaced string') as Replaced;
+```
