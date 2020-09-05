@@ -106,6 +106,8 @@ select name AS 'cat name', breed AS 'kitty breed' FROM cats;
 ## Update
 ```
 update my_table set column_name='new value', another_column_name="another new value" where column_name='some value';
+
+update books set title='Oblivion 2', author_fname='David 2' where book_id=15;
 ```
 
 ## Delete
@@ -166,4 +168,25 @@ Note that it is case sensitive.
 ```
 select replace('Yo, World!', 'Yo', 'Hello') as Greeting;
 select replace(title, 'a', 'replaced string') as Replaced;
+```
+
+### Reverse
+```
+select reverse(whatever. e.g. column_name) from table_name;
+select reverse(title) from books;
+```
+### Char_length
+```
+select char_length('Hello, world');
+
+select char_length(title) from books;
+
+select concat(author_lname, ' is ',  char_length(author_lname), ' characters long') as 'Last Name Character Length' from books;
+```
+
+### Upper, Lower
+They just convert all characters to upper or lower cases.
+```
+select upper(title) from books;
+select lower(title) from books;
 ```
