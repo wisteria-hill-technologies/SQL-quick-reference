@@ -190,3 +190,24 @@ They just convert all characters to upper or lower cases.
 select upper(title) from books;
 select lower(title) from books;
 ```
+
+### distinct
+removes duplicates
+```
+select distinct column_name from books;
+select distinct author_lname from books;
+select distinct author_lname, author_fname from books;
+```
+
+### order by
+```
+select author_lname from books order by author_name; <--- ASC by default
+select author_lname from books order by author_name desc;
+select author_lname from books order by author_name; 
+select title, author_lname, released_year from books order by 3 desc; <--- order by 3 means order by the third selected item (which is 'released_year' in this case).
+
+select author_lname, author_fname from books order by 1,2; <---- can also order by multiple items 
+```
+
+
+
