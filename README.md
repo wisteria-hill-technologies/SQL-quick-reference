@@ -191,7 +191,7 @@ select upper(title) from books;
 select lower(title) from books;
 ```
 
-### distinct
+### Distinct
 removes duplicates
 ```
 select distinct column_name from books;
@@ -199,7 +199,7 @@ select distinct author_lname from books;
 select distinct author_lname, author_fname from books;
 ```
 
-### order by
+### Order by
 ```
 select author_lname from books order by author_name; <--- ASC by default
 select author_lname from books order by author_name desc;
@@ -209,5 +209,24 @@ select title, author_lname, released_year from books order by 3 desc; <--- order
 select author_lname, author_fname from books order by 1,2; <---- can also order by multiple items 
 ```
 
+### limit
+limit by first specified qty from the list. <br />
+Note: ```limit``` always comes last in query.
+```
+select * from books limit 5;
+select * from books order by title desc limit 3;
+```
+You can also specify the starting point as below.<br />
+Note: starting point of the row starts with 0 not 1 (unlike string in sql)!!
+```
+select * from books limit 0,5;  <---- starting point, limit
+select * from books limit 10, 5; <---- starting point, limit
+select * from books limit 10, 999999999999; <--- there is no way to specify for selecting the rest from specific starting point with ``limit``
+```
 
-
+### Like
+```
+select title, author_lname from books where title like '%col%'; <--- any title which contains col.
+select title, author_lname from books where title like 'li%'; <-- title starting with li.
+select title, author_lname from books where title like '%er'; <--- title ending with er.
+```
