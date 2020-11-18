@@ -233,7 +233,7 @@ select title, author_lname from books where title like '%er'; <--- title ending 
 
 ## Logical Operators
 
-### IN
+### In
 
 ```
 select title, author_lname from books where author_lname in ('Smith', 'Davis', 'Harris');
@@ -243,7 +243,20 @@ select title, author_lname from books where author_lname in ('Smith', 'Davis', '
 select title, author_lname from books where released_year not in (2004, 2006, 2018);
 ```
 
-### MODULO
+### Modulo
 ```
 select title, author_lname, released_year from books where released_year%2=0 order by released_year;
 ```
+
+### Case Statement
+```
+SELECT title, stock_quantity,
+    CASE 
+        WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+        WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+        WHEN stock_quantity BETWEEN 101 AND 150 THEN '***'
+        ELSE '****'
+    END AS STOCK
+FROM books;
+```
+
