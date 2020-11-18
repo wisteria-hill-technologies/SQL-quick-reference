@@ -230,3 +230,20 @@ select title, author_lname from books where title like '%col%'; <--- any title w
 select title, author_lname from books where title like 'li%'; <-- title starting with li.
 select title, author_lname from books where title like '%er'; <--- title ending with er.
 ```
+
+## Logical Operators
+
+### IN
+
+```
+select title, author_lname from books where author_lname in ('Smith', 'Davis', 'Harris');
+```
+
+```
+select title, author_lname from books where released_year not in (2004, 2006, 2018);
+```
+
+### MODULO
+```
+select title, author_lname, released_year from books where released_year%2=0 order by released_year;
+```
