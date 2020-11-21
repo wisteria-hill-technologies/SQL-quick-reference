@@ -276,7 +276,9 @@ create table orders(
     order_date date,
     amount decimal(8,2),
     customer_id int,
-    foreign key(customer_id) references customers(id)
+    foreign key(customer_id)
+        references customers(id)
+        on delete cascade
 );
 ```
 Foreign key constraint prevents creating table without id existing in another table.
@@ -296,5 +298,36 @@ WHERE customers.id = orders.customer_id;
 SELECT first_name, last_name, order_date FROM customers
 JOIN orders
 ON customers.id = orders.customer_id;
+```
+
+```
+select first_name, last_name, order_date, amount from orders
+join customers
+on customers.id=orders.customer_id
+order by amount desc;
+```
+
+```
+select first_name, last_name, order_date, amount from orders join customers on customers.id=orders.customer_
+id order by amount desc;
+```
+
+ifnull(x, defaultValue)
+```
+select first_name, last_name, order_date, amount from orders join customers on customers.id=orders.customer_
+id order by amount desc;
+```
+
+### Left Join
+take every item from left table.
+```
+select first_name, last_name, order_date, amount from customers left join orders on customers.id=orders.cust
+omer_id;
+```
+
+### Right Join
+take every item from right table.
+```
+select * from customers right join orders on customers.id=orders.customer_id;
 ```
 
