@@ -280,3 +280,21 @@ create table orders(
 );
 ```
 Foreign key constraint prevents creating table without id existing in another table.
+
+### Inner Join
+-- IMPLICIT INNER JOIN
+
+```
+SELECT first_name, last_name, order_date, amount
+FROM customers, orders 
+WHERE customers.id = orders.customer_id;
+```
+ 
+-- EXPLICIT INNER JOINS
+
+```
+SELECT first_name, last_name, order_date FROM customers
+JOIN orders
+ON customers.id = orders.customer_id;
+```
+
