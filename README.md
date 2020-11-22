@@ -331,3 +331,19 @@ take every item from right table.
 select * from customers right join orders on customers.id=orders.customer_id;
 ```
 
+if(condition, 'if case here', 'else case here')
+```
+select first_name, last_name, count(rating) as COUNT, ifnull(min(rating), 0) as MIN, ifnull(max(rating), 0) as MAX, ifnull(avg(rating), 0) as AVG, if(count(rating)>=1, 'ACTIVE', 'INACTIVE') as status
+from reviewers left join reviews
+on reviewers.id=reviews.reviewer_id
+group by reviewers.id;
+```
+
+### Joining Multiple Tables via Join/Union Table
+```
+select title, rating, concat(first_name, ' ', last_name) as reviewer
+from reviewers
+join reviews on reviewers.id = reviews.reviewer_id
+join series on series.id=reviews.series_id
+order by title;
+```
