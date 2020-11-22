@@ -1,4 +1,8 @@
 # SQL Quick Reference
+Notes from udemy tutorial
+https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/
+
+ToDo: add postgresql notes here as well.
 
 ### Databases
 Display all the databases
