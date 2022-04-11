@@ -318,8 +318,16 @@ id order by amount desc;
 
 ifnull(x, defaultValue)
 ```
-select first_name, last_name, order_date, amount from orders join customers on customers.id=orders.customer_
-id order by amount desc;
+SELECT 
+    IFNULL(first_name,'MISSING') AS first, // show first_name if it exists, otherwise, show the default value.
+    IFNULL(last_name,'USER') as last, 
+    order_date, 
+    amount, 
+    SUM(amount)
+FROM customers
+RIGHT JOIN orders
+    ON customers.id = orders.customer_id
+GROUP BY first_name, last_name;
 ```
 
 ### Left Join
@@ -344,6 +352,17 @@ group by reviewers.id;
 ```
 
 ### Joining Multiple Tables via Join/Union Table
+```
+CREATE TABLE reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    rating DECIMAL(2,1),
+    series_id INT,
+    reviewer_id INT,
+    FOREIGN KEY(series_id) REFERENCES series(id),
+    FOREIGN KEY(reviewer_id) REFERENCES reviewers(id)
+);
+```
+
 ```
 select title, rating, concat(first_name, ' ', last_name) as reviewer
 from reviewers
